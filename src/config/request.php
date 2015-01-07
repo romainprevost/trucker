@@ -47,4 +47,15 @@
 
     'http_method_param' => null,
 
+    /*
+    |--------------------------------------------------------------------------
+    | HTTP method headers parameter
+    |--------------------------------------------------------------------------
+    |
+    | Special HTTP headers that will be send with each request.
+    |
+    |
+    */
+    'http_headers'  => array()
+
 );

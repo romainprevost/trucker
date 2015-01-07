@@ -71,7 +71,8 @@ class CollectionFinder
         $request->createRequest(
             Config::get('request.base_uri'),
             UrlGenerator::getCollectionUri($model),
-            'GET'
+            'GET',
+            Config::get('request.http_headers')
         );
 
         //add auth if it is needed
