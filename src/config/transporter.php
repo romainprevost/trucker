@@ -12,6 +12,7 @@
     |
     */
 
-    'driver' => 'json',
+    'driver'                        => 'json',
+    'add_driver_extension_to_uri'   => false
 
 );

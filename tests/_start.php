@@ -108,7 +108,8 @@ abstract class TruckerTests extends PHPUnit_Framework_TestCase
             'trucker::response.http_status.invalid'                      => 422,
             'trucker::response.http_status.error'                        => 500,
             'trucker::resource.base_64_property_indication'              => '_base64',
-            'trucker::request.http_headers'                                 => [],
+            'trucker::request.http_headers'                              => [],
+            'trucker::transporter.add_driver_extension_to_uri'           => false,
         ];
 
         foreach ($defaultConfig as $key => $value) {

@@ -12,6 +12,7 @@ namespace Trucker\Url;
 
 use Illuminate\Container\Container;
 use Doctrine\Common\Inflector\Inflector;
+use Trucker\Facades\Config;
 
 class UrlGenerator
 {
@@ -170,6 +171,10 @@ class UrlGenerator
                 $uriResult[] = $entityIdSegment;
             }
             $uri = implode("/", $uriResult) . "/$uri";
+        }
+
+        if(Config::get('transporter.add_driver_extension_to_uri')) {
+            $uri .= '.' . Config::get('transporter.driver');
         }
 
         return "/$uri";

@@ -3,6 +3,7 @@
 use Trucker\Facades\UrlGenerator;
 use Trucker\Facades\Trucker;
 use Mockery as m;
+use Trucker\Facades\Config;
 
 class UrlGeneratorTest extends TruckerTests
 {
@@ -140,4 +141,20 @@ class UrlGeneratorTest extends TruckerTests
             $urlGen->getApp()
         );
     }
+
+    public function testGetUriWithExtension()
+    {
+        //Swap config with extension to add
+        $this->swapConfig([
+            'trucker::transporter.add_driver_extension_to_uri' => true
+        ]);
+
+        //test that the extension is added to the URI
+        $x = new User;
+        $this->assertEquals(
+            '/users.json',
+            UrlGenerator::getURI($x)
+        );
+    }
+
 }
