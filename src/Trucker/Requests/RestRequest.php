@@ -101,12 +101,12 @@ class RestRequest implements RequestableInterface
             $this->request = $this->client->{$method}($path);
         }
 
+        //setup how we get data back (xml, json etc)
+        $this->setTransportLanguage();
+
         //set any additional headers on the request
         $requestHeaders = array_merge($requestHeaders, Config::get('request.http_headers'));
         $this->setHeaders($requestHeaders);
-
-        //setup how we get data back (xml, json etc)
-        $this->setTransportLanguage();
 
         return $this->request;
     }
