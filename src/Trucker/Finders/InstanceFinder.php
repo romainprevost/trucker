@@ -64,8 +64,7 @@ class InstanceFinder
         $request->createRequest(
             Config::get('request.base_uri'),
             UrlGenerator::getInstanceUri($model, [':id' => $id]),
-            'GET',
-            Config::get('request.http_headers')
+            'GET'
         );
 
         //add auth if it is needed
